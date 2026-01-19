@@ -1,26 +1,50 @@
+/* src/app/globals.css */
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+  /* -- Fonts -- */
+  --font-sans: var(--font-inter);
+  --font-serif: var(--font-playfair);
+
+  /* -- Color Palette -- */
+  /* Backgrounds */
+  --color-coffee-950: #1C120D; /* Deepest background */
+  --color-coffee-900: #2a1e16; /* Section/Card background */
+  
+  /* Brand Colors */
+  --color-gold-500:   #B88E58; /* Primary Button/Accent */
+  --color-gold-600:   #a17a4a; /* Button Hover */
+  
+  /* Text */
+  --color-cream:      #FDFBF7; /* Primary text */
+  --color-muted:      #A3A3A3; /* Secondary text */
+    /* NEW: Add this animation */
+  --animate-float: float 6s ease-in-out infinite;
+
+   --animate-marquee: marquee 25s linear infinite;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+/* Add the Keyframes at the bottom of the file */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-20px); }
+}
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
+/* Base Styles */
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--color-coffee-950);
+  color: var(--color-cream);
+  font-family: var(--font-sans);
+  overflow-x: hidden; /* Prevent horizontal scroll from absolute elements */
+}
+
+/* Utilities */
+.container-custom {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
 }
